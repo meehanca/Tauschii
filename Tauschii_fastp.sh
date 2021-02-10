@@ -1,0 +1,2 @@
+for i in *_1.fastq; do ~/wheat/Spikes/programs/fastp/fastp -i $i -I ${i%_1.fastq}_2.fastq -o ${i%_1.fastq}_1_trimmed.fastq -O ${i%_1.fastq}_2_trimmed.fastq --thread 64 --cut_right --cut_window_size 4 --cut_mean_quality 20 --overrepresentation_analysis -h ${i%_1.fastq}_fastp.html -j ${i%_1.fastq}_fastp.json\
+ rm $i ${i%_1.fastq}_2.fastq; done
